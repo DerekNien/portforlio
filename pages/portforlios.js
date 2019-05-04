@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
+import BasePage from '../components/layouts/BasePage'
 import { Link } from '../routes'
 
 import axios from 'axios'
@@ -32,8 +33,10 @@ class Portforlios extends Component {
     const { portforlios } = this.props
     return (
       <BaseLayout>
-        <h1>Portforlios</h1>
-        <ul>{this.renderPortforlios(portforlios)}</ul>
+        <BasePage>
+          <h1>Portforlios</h1>
+          <ul>{this.renderPortforlios(portforlios)}</ul>
+        </BasePage>
       </BaseLayout>
     )
   }

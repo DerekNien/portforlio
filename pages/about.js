@@ -1,8 +1,11 @@
 import BaseLayout from '../components/layouts/BaseLayout'
+import BasePage from '../components/layouts/BasePage'
 
 const About = () => (
   <BaseLayout>
-    <h1>About</h1>
+    <BasePage>
+      <h1>About</h1>
+    </BasePage>
   </BaseLayout>
 )
 
