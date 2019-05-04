@@ -1,9 +1,11 @@
 import Link from 'next/link'
-import '../../styles/main.scss'
 
 const Header = () => {
   return (
     <>
+      <Link href="/">
+        <a>Home</a>
+      </Link>
       <Link href="/about">
         <a>About</a>
       </Link>
