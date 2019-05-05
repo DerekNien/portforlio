@@ -6,15 +6,28 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from 'reactstrap'
+
+import auth0 from '../../services/auth0'
 
 const BsNavLink = ({ route, title }) => (
   <Link href={route}>
     <a className="nav-link port-navbar-link"> {title} </a>
   </Link>
 )
+
+const Login = () => {
+  return (
+    <span onClick={auth0.login} className="nav-link port-navbar-link clickable">
+      Login
+    </span>
+  )
+}
+
+const Logout = () => {
+  return <span className="nav-link port-navbar-link clickable"> Logout </span>
+}
 
 export default class Example extends React.Component {
   constructor(props) {
@@ -59,6 +72,12 @@ export default class Example extends React.Component {
               </NavItem>
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/cv" title="Cv" />
+              </NavItem>
+              <NavItem className="port-navbar-item">
+                <Login />
+              </NavItem>
+              <NavItem className="port-navbar-item">
+                <Logout />
               </NavItem>
             </Nav>
           </Collapse>
