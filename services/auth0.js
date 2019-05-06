@@ -11,6 +11,18 @@ class Auth0 {
     })
   }
 
+  handleAuthentication = () => {
+    this.auth0.parseHash((err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.setSession(authResult)
+      } else if (err) {
+        console.log(err)
+      }
+    })
+  }
+
+  setSession = () => {}
+
   login = () => {
     this.auth0.authorize()
   }
