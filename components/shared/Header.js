@@ -1,47 +1,47 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 import {
   Collapse,
   Navbar,
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem
-} from 'reactstrap'
+  NavItem,
+} from 'reactstrap';
 
-import auth0 from '../../services/auth0'
+import auth0 from '../../services/auth0';
 
 const BsNavLink = ({ route, title }) => (
   <Link href={route}>
     <a className="nav-link port-navbar-link"> {title} </a>
   </Link>
-)
+);
 
 const Login = () => {
   return (
     <span onClick={auth0.login} className="nav-link port-navbar-link clickable">
       Login
     </span>
-  )
-}
+  );
+};
 
 const Logout = () => {
-  return <span className="nav-link port-navbar-link clickable"> Logout </span>
-}
+  return <span className="nav-link port-navbar-link clickable"> Logout </span>;
+};
 
 export default class Example extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.toggle = this.toggle.bind(this)
+    this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
-    }
+      isOpen: false,
+    };
   }
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
-    })
+      isOpen: !this.state.isOpen,
+    });
   }
   render() {
     return (
@@ -83,6 +83,6 @@ export default class Example extends React.Component {
           </Collapse>
         </Navbar>
       </div>
-    )
+    );
   }
 }

@@ -1,8 +1,8 @@
-import React from 'react'
-import Header from '../shared/Header'
+import React from 'react';
+import Header from '../shared/Header';
 
 const BaseLayout = props => {
-  const { className, children } = props
+  const { className, children } = props;
   return (
     <div className="layout-container">
       <Header />
@@ -10,7 +10,7 @@ const BaseLayout = props => {
         <div className="wrapper">{children}</div>
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default BaseLayout
+export default BaseLayout;

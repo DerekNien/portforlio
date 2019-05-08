@@ -1,5 +1,5 @@
-import BaseLayout from '../components/layouts/BaseLayout'
-import BasePage from '../components/layouts/BasePage'
+import BaseLayout from '../components/layouts/BaseLayout';
+import BasePage from '../components/layouts/BasePage';
 
 const About = () => (
   <BaseLayout>
@@ -7,6 +7,6 @@ const About = () => (
       <h1>About</h1>
     </BasePage>
   </BaseLayout>
-)
+);
 
-export default About
+export default About;

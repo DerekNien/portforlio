@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import Typed from 'react-typed'
-import { Container, Col, Row } from 'reactstrap'
+import React, { Component } from 'react';
+import Typed from 'react-typed';
+import { Container, Col, Row } from 'reactstrap';
 
-import BaseLayout from '../components/layouts/BaseLayout'
+import BaseLayout from '../components/layouts/BaseLayout';
 
 class Index extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.roles = [
       'Developer',
@@ -15,8 +15,8 @@ class Index extends Component {
       'Course Creater',
       'React.js',
       'C#',
-      'Unity'
-    ]
+      'Unity',
+    ];
   }
 
   render() {
@@ -78,8 +78,8 @@ class Index extends Component {
           </Container>
         </div>
       </BaseLayout>
-    )
+    );
   }
 }
 
-export default Index
+export default Index;

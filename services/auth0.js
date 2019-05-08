@@ -1,4 +1,4 @@
-import auth0 from 'auth0-js'
+import auth0 from 'auth0-js';
 
 class Auth0 {
   constructor() {
@@ -7,27 +7,31 @@ class Auth0 {
       clientID: 'DfykSU0Su0NyJjJ5FfPZ4Y8yJbh7HHp5',
       redirectUri: 'http://localhost:3000/callback',
       responseType: 'token id_token',
-      scope: 'openid profile'
-    })
+      scope: 'openid profile',
+    });
   }
 
   handleAuthentication = () => {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult)
-      } else if (err) {
-        console.log(err)
-      }
-    })
-  }
+    return new Promise((resolve, reject) => {
+      this.auth0.parseHash((err, authResult) => {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          this.setSession(authResult);
+          resolve();
+        } else if (err) {
+          console.log(err);
+          reject(err);
+        }
+      });
+    });
+  };
 
-  setSession = () => {}
+  setSession = () => {};
 
   login = () => {
-    this.auth0.authorize()
-  }
+    this.auth0.authorize();
+  };
 }
 
-const auth0Client = new Auth0()
+const auth0Client = new Auth0();
 
-export default auth0Client
+export default auth0Client;

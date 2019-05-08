@@ -1,17 +1,17 @@
-import React from 'react'
-import { Container } from 'reactstrap'
+import React from 'react';
+import { Container } from 'reactstrap';
 
 const BasePage = props => {
-  const { className, children } = props
+  const { className, children } = props;
   return (
     <div className={`base-page ${className}`}>
       <Container>{children}</Container>
     </div>
-  )
-}
+  );
+};
 
 BasePage.defaultProps = {
-  className: ''
-}
+  className: '',
+};
 
-export default BasePage
+export default BasePage;

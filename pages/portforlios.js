@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
-import BaseLayout from '../components/layouts/BaseLayout'
-import BasePage from '../components/layouts/BasePage'
-import { Link } from '../routes'
+import React, { Component } from 'react';
+import BaseLayout from '../components/layouts/BaseLayout';
+import BasePage from '../components/layouts/BasePage';
+import { Link } from '../routes';
 
-import axios from 'axios'
+import axios from 'axios';
 
 class Portforlios extends Component {
   static async getInitialProps() {
-    let portforlios = []
+    let portforlios = [];
     try {
       const response = await axios.get(
         'https://jsonplaceholder.typicode.com/posts'
-      )
-      portforlios = response.data
+      );
+      portforlios = response.data;
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
 
-    return { portforlios: portforlios.splice(0, 10) }
+    return { portforlios: portforlios.splice(0, 10) };
   }
 
   renderPortforlios = portforlios =>
@@ -27,10 +27,10 @@ class Portforlios extends Component {
           <a>{portforlio.title}</a>
         </Link>
       </li>
-    ))
+    ));
 
   render() {
-    const { portforlios } = this.props
+    const { portforlios } = this.props;
     return (
       <BaseLayout>
         <BasePage>
@@ -38,8 +38,8 @@ class Portforlios extends Component {
           <ul>{this.renderPortforlios(portforlios)}</ul>
         </BasePage>
       </BaseLayout>
-    )
+    );
   }
 }
 
-export default Portforlios
+export default Portforlios;

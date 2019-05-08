@@ -1,5 +1,5 @@
-import BaseLayout from '../components/layouts/BaseLayout'
-import BasePage from '../components/layouts/BasePage'
+import BaseLayout from '../components/layouts/BaseLayout';
+import BasePage from '../components/layouts/BasePage';
 
 const Cv = () => (
   <BaseLayout>
@@ -7,6 +7,6 @@ const Cv = () => (
       <h1>Cv</h1>
     </BasePage>
   </BaseLayout>
-)
+);
 
-export default Cv
+export default Cv;
