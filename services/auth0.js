@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js';
+import Cookies from 'js-cookie';
 
 class Auth0 {
   constructor() {
@@ -25,10 +26,35 @@ class Auth0 {
     });
   };
 
-  setSession = () => {};
+  setSession(authResult) {
+    // Set the time that the Access Token will expire at
+    const expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
+
+    Cookies.set('user', authResult.idTokenPayload);
+    Cookies.set('jwt', authResult.idToken);
+    Cookies.set('expiresAt', expiresAt);
+  }
 
   login = () => {
     this.auth0.authorize();
+  };
+
+  logout = () => {
+    Cookies.remove('user');
+    Cookies.remove('jwt');
+    Cookies.remove('expiresAt');
+
+    this.auth0.logout({
+      redirectTo: '',
+      clientID: 'DfykSU0Su0NyJjJ5FfPZ4Y8yJbh7HHp5',
+    });
+  };
+
+  isAuthenticated = () => {
+    // Check whether the current time is past the
+    // access token's expiry time
+    const expiresAt = Cookies.getJSON('expiresAt');
+    return new Date().getTime() < expiresAt;
   };
 }
 
