@@ -26,7 +26,14 @@ const Login = () => {
 };
 
 const Logout = () => {
-  return <span className="nav-link port-navbar-link clickable"> Logout </span>;
+  return (
+    <span
+      onClick={auth0.logout}
+      className="nav-link port-navbar-link clickable"
+    >
+      Logout
+    </span>
+  );
 };
 
 export default class Example extends React.Component {
@@ -44,6 +51,7 @@ export default class Example extends React.Component {
     });
   }
   render() {
+    const { isAuthenticated } = this.props;
     return (
       <div>
         <Navbar
@@ -73,12 +81,16 @@ export default class Example extends React.Component {
               <NavItem className="port-navbar-item">
                 <BsNavLink route="/cv" title="Cv" />
               </NavItem>
-              <NavItem className="port-navbar-item">
-                <Login />
-              </NavItem>
-              <NavItem className="port-navbar-item">
-                <Logout />
-              </NavItem>
+              {!isAuthenticated && (
+                <NavItem className="port-navbar-item">
+                  <Login />
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem className="port-navbar-item">
+                  <Logout />
+                </NavItem>
+              )}
             </Nav>
           </Collapse>
         </Navbar>

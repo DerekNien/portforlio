@@ -32,7 +32,7 @@ class Portforlios extends Component {
   render() {
     const { portforlios } = this.props;
     return (
-      <BaseLayout>
+      <BaseLayout {...this.props.auth}>
         <BasePage>
           <h1>Portforlios</h1>
           <ul>{this.renderPortforlios(portforlios)}</ul>
