@@ -51,13 +51,6 @@ class Auth0 {
     });
   };
 
-  isAuthenticated = () => {
-    // Check whether the current time is past the
-    // access token's expiry time
-    const expiresAt = Cookies.getJSON('expiresAt');
-    return new Date().getTime() < expiresAt;
-  };
-
   verifyToken = token => {
     if (token) {
       const decodedToken = jwt.decode(token);
