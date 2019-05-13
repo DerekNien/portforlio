@@ -10,7 +10,7 @@ import '../styles/main.scss';
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
-    const isAuthenticated = process.browser
+    const user = process.browser
       ? auth0.clientAuth()
       : auth0.serverAuth(ctx.req);
 
@@ -18,7 +18,7 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    const auth = { isAuthenticated };
+    const auth = { user, isAuthenticated: !!user };
 
     return { pageProps, auth };
   }
