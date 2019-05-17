@@ -6,7 +6,7 @@ export default function(Com) {
   return class withAuth extends Component {
     static async getInitialProps(args) {
       const pageProps =
-        Component.getInitialProps && (await Component.getInitialProps(args));
+        Com.getInitialProps && (await Com.getInitialProps(args));
       return { ...pageProps };
     }
 

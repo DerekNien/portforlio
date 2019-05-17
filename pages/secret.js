@@ -4,16 +4,20 @@ import BasePage from '../components/layouts/BasePage';
 
 import withAuth from '../components/hoc/withAuth';
 
-import axios from 'axios';
+import { getSecretData } from '../actions';
 
 class Secret extends Component {
+  static async getInitialProps({ req }) {
+    const anotherSecretData = await getSecretData(req);
+    return { anotherSecretData };
+  }
+
   state = {
     secretData: [],
   };
 
   async componentDidMount() {
-    const res = await axios.get('/api/v1/secret');
-    const secretData = res.data;
+    const secretData = await getSecretData();
     this.setState({
       secretData,
     });
