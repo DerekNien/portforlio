@@ -49,4 +49,4 @@ class Secret extends Component {
   }
 }
 
-export default withAuth(Secret);
+export default withAuth()(Secret);

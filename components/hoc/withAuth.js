@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import BaseLayout from '../layouts/BaseLayout';
 import BasePage from '../layouts/BasePage';
 
-export default function(Com) {
-  return class withAuth extends Component {
+const namespace = 'http://localhost:3000/';
+
+export default role => Com =>
+  class withAuth extends Component {
     static async getInitialProps(args) {
       const pageProps =
         Com.getInitialProps && (await Com.getInitialProps(args));
@@ -11,10 +13,19 @@ export default function(Com) {
     }
 
     renderProtectedPage = () => {
-      const { isAuthenticated } = this.props.auth;
-      if (isAuthenticated) {
-        return <Com {...this.props} />;
+      const { isAuthenticated, user } = this.props.auth;
+      const userRole = user && user[`${namespace}role`];
+      let isAuthorized = false;
+
+      if (role) {
+        if (userRole && userRole === role) {
+          isAuthorized = true;
+        }
       } else {
+        isAuthorized = true;
+      }
+
+      if (!isAuthenticated) {
         return (
           <BaseLayout {...this.props.auth}>
             <BasePage>
@@ -22,6 +33,19 @@ export default function(Com) {
             </BasePage>
           </BaseLayout>
         );
+      } else if (!isAuthorized) {
+        return (
+          <BaseLayout {...this.props.auth}>
+            <BasePage>
+              <h1>
+                You are not authorized. You don't have a permission to access
+                this page.
+              </h1>
+            </BasePage>
+          </BaseLayout>
+        );
+      } else {
+        return <Com {...this.props} />;
       }
     };
 
@@ -29,4 +53,3 @@ export default function(Com) {
       return this.renderProtectedPage();
     }
   };
-}
