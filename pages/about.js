@@ -1,11 +1,10 @@
+import React, { Component } from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import BasePage from '../components/layouts/BasePage';
 
-const About = () => (
-  <BaseLayout {...this.props.auth}>
-    <BasePage>
-      <h1>About</h1>
-    </BasePage>
+const About = props => (
+  <BaseLayout {...props.auth}>
+    <BasePage className="about-page" title="I am about page" />
   </BaseLayout>
 );
 

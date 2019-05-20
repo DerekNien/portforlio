@@ -24,8 +24,7 @@ class Portforlio extends Component {
   render() {
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage>
-          <h1>Portforlio</h1>
+        <BasePage title="Portforlios">
           <h2>{this.props.portforlio.title}</h2>
         </BasePage>
       </BaseLayout>
