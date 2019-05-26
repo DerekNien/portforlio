@@ -28,7 +28,7 @@ export default role => Com =>
       if (!isAuthenticated) {
         return (
           <BaseLayout {...this.props.auth}>
-            <BasePage>
+            <BasePage className="base-page">
               <h1>You are not authenticated</h1>
             </BasePage>
           </BaseLayout>
@@ -36,7 +36,7 @@ export default role => Com =>
       } else if (!isAuthorized) {
         return (
           <BaseLayout {...this.props.auth}>
-            <BasePage>
+            <BasePage className="base-page">
               <h1>
                 You are not authorized. You don't have a permission to access
                 this page.
