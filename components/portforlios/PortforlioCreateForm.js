@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Button, FormGroup, Label } from 'reactstrap';
 
 const INITIAL_VALUES = {
   title: '',
@@ -36,47 +37,52 @@ const PortforlioCreateForm = () => (
     >
       {({ isSubmitting }) => (
         <Form>
-          <div>
+          <FormGroup>
             <label>Title</label>
-            <Field type="text" name="title" />
+            <Field className="form-control" type="text" name="title" />
             <ErrorMessage name="title" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
+          <FormGroup>
             <label>Company</label>
-            <Field type="text" name="company" />
+            <Field className="form-control" type="text" name="company" />
             <ErrorMessage name="company" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
+          <FormGroup>
             <label>Location</label>
-            <Field type="text" name="location" />
+            <Field className="form-control" type="text" name="location" />
             <ErrorMessage name="location" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
+          <FormGroup>
             <label>Position</label>
-            <Field type="text" name="postion" />
+            <Field className="form-control" type="text" name="postion" />
             <ErrorMessage name="postion" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
+          <FormGroup>
             <label>Description</label>
-            <Field type="textarea" name="description" component="textarea" />
+            <Field
+              className="form-control"
+              type="textarea"
+              name="description"
+              component="textarea"
+            />
             <ErrorMessage name="description" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
-            <label>Start Date</label>
-            <Field type="text" name="startDate" />
+          <FormGroup>
+            <Label>Start Date</Label>
+            <Field className="form-control" type="text" name="startDate" />
             <ErrorMessage name="startDate" component="div" />
-          </div>
+          </FormGroup>
 
-          <div>
-            <label>End Date</label>
-            <Field type="text" name="endDate" />
+          <FormGroup>
+            <Label>End Date</Label>
+            <Field className="form-control" type="text" name="endDate" />
             <ErrorMessage name="endDate" component="div" />
-          </div>
+          </FormGroup>
 
           <button type="submit" disabled={isSubmitting}>
             Create
@@ -110,7 +116,7 @@ export default PortforlioCreateForm;
 //   render() {
 //     return (
 //       <form onSubmit={this.handleSubmit}>
-//         <label>
+//         <Label>
 //           Name:
 //           <input
 //             name="title"
@@ -118,16 +124,16 @@ export default PortforlioCreateForm;
 //             value={this.state.value}
 //             onChange={this.handleChange}
 //           />
-//         </label>
-//         <label>
+//         </Label>
+//         <Label>
 //           Description:
 //           <textarea
 //             name="description"
 //             value={this.state.value}
 //             onChange={this.handleChange}
 //           />
-//         </label>
-//         <label>
+//         </Label>
+//         <Label>
 //           Pick your favorite Programming Language:
 //           <select
 //             name="language"
@@ -139,7 +145,7 @@ export default PortforlioCreateForm;
 //             <option value="c#">C#</option>
 //             <option value="c++">C++</option>
 //           </select>
-//         </label>
+//         </Label>
 //         <input type="submit" value="Submit" />
 //       </form>
 //     );
