@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, FormGroup, Label } from 'reactstrap';
+import PortInput from '../form/PortInput';
 
 const INITIAL_VALUES = {
   title: '',
@@ -37,40 +38,31 @@ const PortforlioCreateForm = () => (
     >
       {({ isSubmitting }) => (
         <Form>
-          <FormGroup>
-            <label>Title</label>
-            <Field className="form-control" type="text" name="title" />
-            <ErrorMessage name="title" component="div" />
-          </FormGroup>
-
-          <FormGroup>
-            <label>Company</label>
-            <Field className="form-control" type="text" name="company" />
-            <ErrorMessage name="company" component="div" />
-          </FormGroup>
-
-          <FormGroup>
-            <label>Location</label>
-            <Field className="form-control" type="text" name="location" />
-            <ErrorMessage name="location" component="div" />
-          </FormGroup>
-
-          <FormGroup>
-            <label>Position</label>
-            <Field className="form-control" type="text" name="postion" />
-            <ErrorMessage name="postion" component="div" />
-          </FormGroup>
-
-          <FormGroup>
-            <label>Description</label>
-            <Field
-              className="form-control"
-              type="textarea"
-              name="description"
-              component="textarea"
-            />
-            <ErrorMessage name="description" component="div" />
-          </FormGroup>
+          <Field type="text" name="title" label="Title" component={PortInput} />
+          <Field
+            type="text"
+            name="company"
+            label="Company"
+            component={PortInput}
+          />
+          <Field
+            type="text"
+            name="location"
+            label="Location"
+            component={PortInput}
+          />
+          <Field
+            type="text"
+            name="postion"
+            label="Position"
+            component={PortInput}
+          />
+          <Field
+            type="textarea"
+            name="description"
+            label="Description"
+            component={PortInput}
+          />
 
           <FormGroup>
             <Label>Start Date</Label>
