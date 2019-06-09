@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, FormGroup, Label } from 'reactstrap';
 import PortInput from '../form/PortInput';
+import PortDate from '../form/PortDate';
 
 const INITIAL_VALUES = {
   title: '',
@@ -64,17 +65,9 @@ const PortforlioCreateForm = () => (
             component={PortInput}
           />
 
-          <FormGroup>
-            <Label>Start Date</Label>
-            <Field className="form-control" type="text" name="startDate" />
-            <ErrorMessage name="startDate" component="div" />
-          </FormGroup>
+          <Field name="startDate" label="Start Date" component={PortDate} />
 
-          <FormGroup>
-            <Label>End Date</Label>
-            <Field className="form-control" type="text" name="endDate" />
-            <ErrorMessage name="endDate" component="div" />
-          </FormGroup>
+          <Field name="endDate" label="End Date" component={PortDate} />
 
           <button type="submit" disabled={isSubmitting}>
             Create
