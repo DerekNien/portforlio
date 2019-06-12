@@ -26,7 +26,11 @@ export default class PortDate extends React.Component {
   }
 
   render() {
-    const { label } = this.props;
+    const {
+      label,
+      field,
+      form: { touched, errors },
+    } = this.props;
     return (
       <FormGroup>
         <Label>{label}</Label>
@@ -40,6 +44,9 @@ export default class PortDate extends React.Component {
             maxDate={new Date()}
             dropdownMode="select"
           />
+          {touched[field.name] && errors[field.name] && (
+            <div className="error">{errors[field.name]}</div>
+          )}
         </div>
       </FormGroup>
     );

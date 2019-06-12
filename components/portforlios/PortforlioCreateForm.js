@@ -4,6 +4,8 @@ import { Button, FormGroup, Label } from 'reactstrap';
 import PortInput from '../form/PortInput';
 import PortDate from '../form/PortDate';
 
+import moment from 'moment';
+
 const INITIAL_VALUES = {
   title: '',
   company: '',
@@ -24,6 +26,14 @@ const validateInputs = values => {
       errors[key] = `Field ${key} is required!`;
     }
   });
+
+  const startDate = values.startDate;
+  const endDate = values.endDate;
+
+  if (startDate && endDate && moment(endDate).isBefore(startDate)) {
+    errors.endDate = 'End Date cannot be before Start Date!';
+  }
+
   return errors;
 };
 
