@@ -8,6 +8,10 @@ import { Row, Col } from 'reactstrap';
 import withAuth from '../components/hoc/withAuth';
 
 class ProtforlioNew extends Component {
+  savePorforlio = porforlioData => {
+    alert(JSON.stringify(porforlioData, null, 2));
+  };
+
   render() {
     return (
       <BaseLayout {...this.props.auth}>
@@ -17,7 +21,7 @@ class ProtforlioNew extends Component {
         >
           <Row>
             <Col md="6">
-              <PortforlioCreateForm />
+              <PortforlioCreateForm onSubmit={this.savePorforlio} />
             </Col>
           </Row>
         </BasePage>
